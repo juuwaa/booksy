@@ -21,8 +21,6 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
-            /* overflow-x: hidden; / / Menghindari scroll horizontal yang tidak perlu */
-            /* overflow-y: auto; / / Mengizinkan scroll vertikal */
         }
 
         html, body {
@@ -56,6 +54,7 @@
             font-size: 70px;
             font-weight: 800;
             width: 100%;
+            text-align: center;
         }
 
         .hero-content p {
@@ -63,39 +62,25 @@
             font-size: 20px;
             line-height: 1.5;
             width: 100%;
+            text-align: center;
         }
 
-        .hero .container { /* Targetkan kontainer secara spesifik di dalam hero */
+        .hero .container {
             display: flex;
-            /* Hapus lebar tetap untuk memungkinkan fleksibilitas */
             height: 550px;
-            align-items: center; /* Pusatkan secara vertikal */
-            justify-content: center; /* Pusatkan secara horizontal */
-            max-width: 100%; /* Pastikan tidak meluap pada layar yang lebih kecil */
-            margin: 0 auto; /* Pusatkan kontainer itu sendiri secara horizontal */
+            align-items: center;
+            justify-content: center;
+            max-width: 100%;
+            margin: 0 auto;
         }
-
-
 
         .collection-section {
             padding: 80px 40px;
             text-align: center;
-            /* Tambahkan margin-top agar tidak tumpang tindih dengan hero saat hero full-height */
-            /* Ini akan membuat collection-section dimulai tepat setelah hero selesai */
-            margin-top: -1px; /* Sedikit overlap untuk menghindari celah 1px pada beberapa browser */
-            background: linear-gradient(to right bottom, #896040, #896040, #3A1F08); Pertahankan background body */
-            position: relative; /* Agar z-index bekerja jika ada overlay */
-            z-index: 50; /* Di bawah header tapi di atas body utama */
-        }
-
-        .collection-section2 {
-            padding: 80px 40px;
-            text-align: center;
-            /* Tambahkan margin-top agar tidak tumpang tindih dengan hero saat hero full-height */
-            /* Ini akan membuat collection-section dimulai tepat setelah hero selesai */
-            margin-top: -1px; /* Sedikit overlap untuk menghindari celah 1px pada beberapa browser */
-            position: relative; /* Agar z-index bekerja jika ada overlay */
-            z-index: 50; /* Di bawah header tapi di atas body utama */
+            margin-top: -1px;
+            background: linear-gradient(to right bottom, #896040, #896040, #3A1F08);
+            position: relative;
+            z-index: 50;
         }
 
         .collection-title {
@@ -118,7 +103,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 40px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -175,79 +160,71 @@
         }
 
         /* CSS untuk Dropdown */
-        /* CSS untuk Dropdown yang Dipercantik */
         .dropdown {
             position: relative;
             display: inline-block;
         }
 
-        /* CSS untuk Dropdown yang Dipercantik & Transparan */
         .dropdown-content {
-            display: none; /* Sembunyikan secara default */
+            display: none;
             position: absolute;
-            /* Ganti ini untuk efek transparan dengan blur */
-            background-color: rgba(58, 31, 8, 0.4); /* Warna dasar coklat gelap dengan transparansi 40% */
-            backdrop-filter: blur(10px); /* Efek blur untuk latar belakang di belakang dropdown */
-            -webkit-backdrop-filter: blur(10px); /* Dukungan untuk browser Webkit (Safari) */
-
-            border: 1px solid rgba(228, 197, 158, 0.3); /* Sedikit border tipis untuk kesan mewah */
-            min-width: 180px; /* Sedikit lebih lebar */
-            box-shadow: 0px 10px 25px 0px rgba(0,0,0,0.4); /* Bayangan lebih halus dan menyebar */
+            background-color: rgba(58, 31, 8, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(228, 197, 158, 0.3);
+            min-width: 180px;
+            box-shadow: 0px 10px 25px 0px rgba(0,0,0,0.4);
             z-index: 100;
-            top: 120%; /* Sedikit lebih dekat ke tombol utama, atur sesuai preferensi */
-            left: 50%; /* Pusatkan dropdown di bawah tombol */
-            transform: translateX(-50%); /* Penyesuaian untuk pemusatan */
-            border-radius: 8px; /* Sudut lebih lembut */
-            overflow: hidden; /* Penting untuk rounded corner dan transisi */
-            opacity: 0; /* Mulai dengan transisi opacity 0 */
-            visibility: hidden; /* Sembunyikan sepenuhnya */
-            transition: opacity 0.3s ease, top 0.3s ease, visibility 0.3s; /* Transisi untuk munculnya dropdown */
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 8px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, top 0.3s ease, visibility 0.3s;
         }
 
         .dropdown-content a {
-            color: #e4c59e; /* Warna teks link di dropdown */
-            padding: 12px 20px; /* Padding sedikit lebih besar */
+            color: #e4c59e;
+            padding: 12px 20px;
             text-decoration: none;
             display: block;
             text-align: left;
-            font-size: 0.95rem; /* Ukuran font sedikit lebih kecil agar terlihat profesional */
-            font-weight: 500; /* Memberikan ketebalan sedang */
-            transition: background-color 0.3s ease, color 0.3s ease; /* Transisi halus saat hover */
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .dropdown-content a:hover {
-            background-color: #896040; /* Warna latar belakang saat di-hover */
-            color: white; /* Warna teks saat di-hover */
+            background-color: #896040;
+            color: white;
         }
 
-        /* Tampilkan dropdown saat mengarahkan kursor ke "dropdown" induk */
         .dropdown:hover .dropdown-content {
             display: block;
-            opacity: 1; /* Transisi muncul dengan opacity 1 */
-            visibility: visible; /* Jadikan terlihat */
-            top: 100%; /* Kembali ke posisi semula saat muncul */
+            opacity: 1;
+            visibility: visible;
+            top: 100%;
         }
 
-        /* Gaya untuk ikon dropdown (panah bawah) */
         .dropdown-icon {
-            font-size: 0.7em; /* Ukuran ikon lebih kecil */
-            margin-left: 8px; /* Jarak dari teks */
-            vertical-align: middle; /* Rata tengah vertikal */
-            transition: transform 0.3s ease; /* Transisi untuk rotasi ikon */
+            font-size: 0.7em;
+            margin-left: 8px;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
         }
 
-        /* Putar ikon saat hover pada dropdown */
         .dropdown:hover .dropdown-icon {
-            transform: rotate(180deg); /* Putar 180 derajat (menunjuk ke atas) */
+            transform: rotate(180deg);
         }
 
-        /* Sesuaikan gaya untuk dropbtn agar konsisten dengan link navbar lainnya */
         .nav-links .dropbtn {
-            color: white; /* Warna teks tombol utama */
+            color: white;
             text-decoration: none;
-            padding: 10px 15px; /* Sesuaikan dengan padding link navbar lain */
-            display: block; /* Agar padding dan hover area lebih baik */
-            white-space: nowrap; /* Mencegah teks dan ikon terpecah baris */
+            padding: 10px 15px;
+            display: block;
+            white-space: nowrap;
         }
 
         .nav-container {
@@ -272,94 +249,100 @@
         }
 
         .search-bar {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.364);
-    width: 300px;
-    outline: none;
-    color: white; /* Warna teks putih */
-    font-weight: 500; /* Tambahan untuk ketebalan font */
-    font-family: 'Montserrat';
-}
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.364);
+            width: 300px;
+            outline: none;
+            color: white;
+            font-weight: 500;
+            font-family: 'Montserrat';
+        }
 
-/* Styling untuk placeholder text agar juga putih */
-.search-bar::placeholder {
-    color: rgba(255, 255, 255, 0.8);
-    opacity: 1; /* Untuk Firefox */
-}
+        .search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 1;
+        }
 
-/* Untuk browser yang membutuhkan vendor prefix */
-.search-bar::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.8);
-}
+        .search-bar::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
 
-.search-bar::-moz-placeholder {
-    color: rgba(255, 255, 255, 0.8);
-    opacity: 1;
-}
+        .search-bar::-moz-placeholder {
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 1;
+        }
 
-.search-bar:-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.8);
-}
+        .search-bar:-ms-input-placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
 
-.search-bar:-moz-placeholder {
-    color: rgba(255, 255, 255, 0.8);
-    opacity: 1;
-}
+        .search-bar:-moz-placeholder {
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 1;
+        }
 
-.nav-links {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: background 0.3s;
-}
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
 
-.nav-links a:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
 
-.profile-icon {
-    width: 35px;
-    height: 35px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #8B4513;
-    font-weight: bold;
-}
+        .profile-icon {
+            width: 35px;
+            height: 35px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8B4513;
+            font-weight: bold;
+        }
 
-.logo-img {
-    height: 40px;
-    width: auto;
-}
+        .book-stock {
+            font-size: 0.8rem;
+            color: #e4c59e;
+            opacity: 0.7;
+        }
 
-/* Media Queries for Responsiveness (from dashboard.php, simplified for header) */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-        position: relative; /* Changed to relative for mobile to allow content to flow */
-        z-index: auto;
-        height: auto;
-    }
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+                position: relative;
+                z-index: auto;
+                height: auto;
+            }
 
-    .search-bar {
-        width: 100%;
-    }
-}
-                
+            .search-bar {
+                width: 100%;
+            }
+
+            .books-grid {
+                gap: 20px;
+            }
+
+            .book-item {
+                width: 200px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -369,14 +352,7 @@
             <input type="text" class="search-bar" placeholder="Find your favorite books...">
             <nav class="nav-links">
                 <a href="#">Home</a>
-                <div class="dropdown">
-                    <a href="#collection" class="dropbtn">Collection <span class="dropdown-icon">▾</span></a>
-                    <div class="dropdown-content">
-                        <a href="#collection">New Arrivals</a>
-                        <a href="#collection2">Top Picks</a>
-                    </div>
-                </div>
-                <a href="form.php">Get a Book</a>
+                <a href="#collection">Collection</a>
                 <a href="profile.php" class="profile-icon">👤</a>
             </nav>
         </div>
@@ -392,171 +368,176 @@
     </section>
 
     <section class="collection-section" id="collection">
-
         <h2 class="collection-title">
             <span class="star">★</span>
-            New Arrivals
+            Our Collection
             <span class="star">★</span>
         </h2>
 
         <div class="books-grid">
+            <!-- New Arrivals Books -->
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/atomic habits.jpg" alt="Atomic Habits">
+                    <img src="images/atomic_habits.jpg" alt="Atomic Habits">
                 </div>
                 <div class="book-info">
                     <h3>Atomic Habits</h3>
                     <p>by James Clear</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/1984.jpg" alt="1984">
+                    <img src="images/1984.jpg" alt="1984">
                 </div>
                 <div class="book-info">
                     <h3>1984</h3>
                     <p>by George Orwell</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/hello.jpg" alt="Hello">
+                    <img src="images/hello.jpg" alt="Hello">
                 </div>
                 <div class="book-info">
                     <h3>Hello</h3>
                     <p>by Tere Liye</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/dunia sophie.jpg" alt="Dunia Sophie">
+                    <img src="images/dunia sophie.jpg" alt="Dunia Sophie">
                 </div>
                 <div class="book-info">
                     <h3>Dunia Sophie</h3>
                     <p>by Jonstein Gaarder</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/aroma karsa.jpg" alt="Aroma Karsa">
+                    <img src="images/aroma karsa.jpg" alt="Aroma Karsa">
                 </div>
                 <div class="book-info">
                     <h3>Aroma Karsa</h3>
                     <p>by Dee Lestari</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/detektif conan.jpg" alt="Detektif Conan Vol.1">
+                    <img src="images/detektif conan.jpg" alt="Detektif Conan Vol.1">
                 </div>
                 <div class="book-info">
                     <h3>Detektif Conan Vol. 1</h3>
                     <p>by Gosho Ayoama</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/aldebaran.jpg" alt="Aldebaran">
+                    <img src="images/aldebaran.jpg" alt="Aldebaran">
                 </div>
                 <div class="book-info">
                     <h3>Aldebaran</h3>
                     <p>by Tere Liye</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/lumiere blanche.jpg" alt="Lumiere Blanche">
+                    <img src="images/lumiere_blanche.jpg" alt="Lumiere Blanche">
                 </div>
                 <div class="book-info">
                     <h3>Lumiere Blanche</h3>
                     <p>by Cecillia Wang</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
-        </div>
-
-     <section class="collection-section2" id="collection2">
-
-        <h2 class="collection-title">
-            <span class="star">★</span>
-            Reader's Top Picks
-            <span class="star">★</span>
-        </h2>
-
-        <div class="books-grid">
+            
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/homesweetloan.jpg" alt="Home Sweet Loan">
+                    <img src="images/homesweetloan.jpg" alt="Home Sweet Loan">
                 </div>
                 <div class="book-info">
                     <h3>Home Sweet Loan</h3>
                     <p>by Almira Bastari</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/sagaras.jpeg" alt="Sagaras">
+                    <img src="images/sagaras.jpeg" alt="Sagaras">
                 </div>
                 <div class="book-info">
                     <h3>Sagaras</h3>
                     <p>by Tere Liye</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/laut bercerita.jpg" alt="Laut Bercerita">
+                    <img src="images/laut_bercerita.png" alt="Laut Bercerita">
                 </div>
                 <div class="book-info">
                     <h3>Laut Bercerita</h3>
                     <p>by Leila S. Chudori</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/brianna dan bottomwise.jpeg" alt="Brianna dan Bottomwise">
+                    <img src="images/brianna_dan_bottomwise.jpeg" alt="Brianna dan Bottomwise">
                 </div>
                 <div class="book-info">
                     <h3>Brianna dan Bottomwise</h3>
                     <p>by Andrea Hirata</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/pulang pergi.jpeg" alt="Pulang Pergi">
+                    <img src="images/pulang_pergi.jpeg" alt="Pulang Pergi">
                 </div>
                 <div class="book-info">
                     <h3>Pulang Pergi</h3>
                     <p>by Tere Liye</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/nadira.jpg" alt="Nadira">
+                    <img src="images/nadira.jpg" alt="Nadira">
                 </div>
                 <div class="book-info">
                     <h3>Nadira</h3>
                     <p>by Leila S. Chudori</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/anak rantau.jpg" alt="Anak Rantau">
+                    <img src="images/anakrantau.jpg" alt="Anak Rantau">
                 </div>
                 <div class="book-info">
                     <h3>Anak Rantau</h3>
                     <p>by A. Fuadi</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="jpg/perempuan laut.jpg" alt="Perempuan Laut">
+                    <img src="images/perempuan_laut.jpg" alt="Perempuan Laut">
                 </div>
                 <div class="book-info">
                     <h3>Perempuan Laut</h3>
                     <p>by Usma Arrumy</p>
+                    <div class="book-stock">Stok 20</div>
                 </div>
             </div>
         </div>
-
     </section>
 
 </body>
